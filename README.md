@@ -1,0 +1,1 @@
+# Full-stack e-commerce platform built with the MERN stack, with authentication, product management, search and filtering, shopping cart, checkout workflow, and admin dashboard.
