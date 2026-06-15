@@ -26,7 +26,6 @@ const Navbar = () => {
         <p>categories</p>
         <p>more pages...</p>
       </div>
-      <input type="text" placeholder="search..." />
       <hr />
     </nav>
   );

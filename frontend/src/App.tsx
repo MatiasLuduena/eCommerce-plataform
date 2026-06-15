@@ -1,4 +1,8 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import type { RootState } from "./store/store";
 
 // components
 import Navbar from "./components/navbar/Navbar.tsx";
@@ -16,12 +20,18 @@ import Profile from "./pages/profile/Profile.tsx";
 import Dashboard from "./pages/dashboard/Dashboard.tsx";
 
 function App() {
+  const cart = useSelector((state: RootState) => state.cart);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/catalog/*" element={<Catalog />} />
+        <Route path="/catalog/:category" element={<Catalog />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
